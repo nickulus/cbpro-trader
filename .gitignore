@@ -7,3 +7,5 @@ __pycache__
 .vscode
 cbpro-trader/daemon/config.live
 cbpro-trader/daemon/config.sandbox
+cbpro-trader/daemon/venv/*
+cbpro-trader/daemon/config.yml.sandbox

@@ -22,6 +22,16 @@ class IndicatorSubsystem:
             volumes = np.append(cur_period.get_volumes(), cur_period.cur_candlestick.volume)
 
             self.calculate_sma(cur_period.name, closing_prices_close)
+            self.calculate_macd(cur_period.name, closing_prices_close)
+            self.calculate_stochrsi(cur_period.name, closing_prices_close)
+            self.calculate_stoch(cur_period.name, closing_prices_close)
+            self.calculate_obv(cur_period.name, closing_prices_close, volumes)
+            self.calculate_adx(cur_period.name, closing_prices_close)
+            self.calculate_bbands(cur_period.name, closing_prices_close)
+            self.calculate_vol_macd(cur_period.name, volumes)
+            self.calculate_avg_volume(cur_period.name, volumes)
+            self.calculate_sar(cur_period.name, self.highs, self.lows)
+            self.calculate_mfi(cur_period.name, self.highs, self.lows, closing_prices_close, volumes)
 
             self.current_indicators[cur_period.name]['close'] = cur_period.cur_candlestick.close
             self.current_indicators[cur_period.name]['total_periods'] = total_periods

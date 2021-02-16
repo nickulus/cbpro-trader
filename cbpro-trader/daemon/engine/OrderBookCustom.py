@@ -17,6 +17,13 @@ class OrderBookCustom(cbpro.OrderBook):
             return False
         return True
 
+    def process_message(self, msg):
+        try:
+            super(OrderBookCustom, self).process_message(msg)
+        except (ValueError, AttributeError):
+            return False
+        return True
+
     def get_ask(self):
         while not self.is_ready():
             time.sleep(0.01)
